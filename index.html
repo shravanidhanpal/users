@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>app</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <h1>Appointment Booking App</h1>
+    <form id="form">
+      <input type="text" title="name" id="name" placeholder="enter name" required />
+      <input type="email" title="email" id="email" placeholder="enter email id" required />
+      <input type="submit" id="submit" value="Submit" />
+    </form>
+    <ul id="listOfPeople"></ul>
+    <script>
+      let form=document.getElementById('form')
+      form.addEventListener('submit',(e)=>{
+        let name=document.getElementById('name').value
+        let email=document.getElementById('email').value
+        let name_serialized=JSON.stringify(name);
+        let email_serialized=JSON.stringify(email);
+        localStorage.setItem('name',name);
+        localStorage.setItem('email',email);
+        console.log(localStorage);
+        let name_deserialized=JSON.parse(localStorage.getItem('name'));
+        let email_deserialized=JSON.parse(localStorage.getItem('email'));
+        console.log(name_deserialized);
+        console.log(email_deserialized); 
+      })
+    </script>
+  </body>
+</html>
